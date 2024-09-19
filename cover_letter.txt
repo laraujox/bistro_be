@@ -1,0 +1,14 @@
+I am writing to express my interest in the Python Developer position. With extensive experience in backend development and a passion for tech innovation, I am eager to contribute to your team.
+
+In my current role as a Software Engineer at Ocumetra, I have been instrumental in developing a platform that revolutionizes how optometrists access and present patient information. Utilizing technologies such as Flask, Python, Docker, AWS, and PostgreSQL, I have gained significant expertise in backend development, cloud services, and database management. Additionally, I initiated and led a project to improve our code coverage by writing the first integration test and adding the missing unit tests and integration tests for all core features. This project improved our test coverage from 40% to 90%, leading to more secure releases, faster development cycles, and reduced errors.
+
+My previous experiences have further solidified my technical skills. I have worked with technologies like NestJS, TypeScript, React, Kubernetes, and Git, leading projects to refactor codebases and establish efficient development practices. I have also contributed to startups, where I participated in the development of scalable architectures using Python with Django and NodeJS with TypeScript. These roles have equipped me with a strong foundation in microservices, event-driven architecture, and full-stack development.
+
+I thrive in tech-driven environments and am dedicated to continuous learning and growth. My ability to mentor junior developers and collaborate effectively with cross-functional teams has been a key factor in my success. I am particularly excited about the opportunity to bring my expertise in Python and backend development.
+
+Regarding my work authorization, I currently hold a stamp one visa and will require visa sponsorship for my next role. I am committed to ensuring a smooth transition and am enthusiastic about the prospect of joining your team.
+
+Thank you for considering my application. I look forward to the opportunity to discuss my qualifications in more detail.
+
+Sincerely,
+Lucas Oliveira
