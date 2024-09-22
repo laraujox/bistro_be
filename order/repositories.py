@@ -1,4 +1,5 @@
-from menu.models import OrderItem, Product, Order
+from menu.models import Product
+from order.models import Order, OrderItem
 
 
 class OrderItemRepository:
