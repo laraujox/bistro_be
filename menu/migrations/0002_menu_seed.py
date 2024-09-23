@@ -8,8 +8,8 @@ def insert_initial_products(apps, schema_editor):
 
     # Add initial categories
     bebidas = Category.objects.create(name='Bebidas', available=True)
-    salgados = Category.objects.create(name='Salgados', available=True)
-    pratos = Category.objects.create(name='Pratos', available=True)
+    entrada = Category.objects.create(name='Entrada', available=True)
+    principal = Category.objects.create(name='Principal', available=True)
     sobremesas = Category.objects.create(name='Sobremesas', available=True)
 
     # Define your initial product data
@@ -43,7 +43,7 @@ def insert_initial_products(apps, schema_editor):
         {
             'name': 'Coxinha de frango',
             'description': 'Coxinha de frango recheado e catupiry',
-            'category': salgados,
+            'category': entrada,
             'price': '5',
             'image_url': 'https://lh6.googleusercontent.com/proxy/EeEwfLnrCxMI0I4zL7tCSXEkbzRWFpIXD-wsB7nFcQQPVRVe9y9tLxXy3VszaUuwImiAhihPvAvZXcEYZWolD_B-MNmdRX0r5uecfxuGVdNI_DC7lgJunwzFToQTAr0GsBZyThZ51sCL_H2wtAZtSw',
             'available': True,
@@ -51,7 +51,7 @@ def insert_initial_products(apps, schema_editor):
         {
             'name': 'Empada de Calabresa',
             'description': 'Empadinha de frango feita na casa, com recheio de calabresa',
-            'category': salgados,
+            'category': entrada,
             'price': '5.50',
             'image_url': 'https://www.massottisalgados.com.br/wp-content/uploads/2017/05/empada-calabresa-assado-massotti.jpg',
             'available': True,
@@ -59,7 +59,7 @@ def insert_initial_products(apps, schema_editor):
         {
             'name': 'Esfiha de Carne com queijo',
             'description': 'Esfiha árabe com recheio de carne e queijo mussarela',
-            'category': salgados,
+            'category': entrada,
             'price': '5',
             'image_url': 'https://www.inglesescongelados.com.br/wp-content/uploads/2021/08/Ficha-T%C2%AEcnica-Esfirra-de-Carne_03.09.18-.png',
             'available': True,
@@ -68,7 +68,7 @@ def insert_initial_products(apps, schema_editor):
         {
             'name': 'Filé de frango',
             'description': 'Arroz, feijão, batata frita, filé de frango grelhado e salada.',
-            'category': pratos,
+            'category': principal,
             'price': '32',
             'image_url': 'https://as1.ftcdn.net/v2/jpg/04/52/02/32/1000_F_452023294_GGha6a7JWrCz6pIJ8uAvtCa8VpiaySGy.jpg',
             'available': True,
@@ -76,7 +76,7 @@ def insert_initial_products(apps, schema_editor):
         {
             'name': 'Filé de frango a parmegiana',
             'description': 'File de frango aparmegiana com muzzarela, fritas e arroz.',
-            'category': pratos,
+            'category': principal,
             'price': '35',
             'image_url': 'https://www.zappas.com.br/image/cache/catalog/produtos/Pratos/Prato%202%20-%20Fil%C3%A9%20de%20Frango%20%C3%A0%20Parmegiana-800x800.jpg',
             'available': True,
@@ -84,7 +84,7 @@ def insert_initial_products(apps, schema_editor):
         {
             'name': 'Feijoada Completa p/ 2 pessoas',
             'description': 'Feijoada completa com pratos separados feita idealmente para 2 pessoas',
-            'category': pratos,
+            'category': principal,
             'price': '50',
             'image_url': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOGCt4Tv91eCVR3h9TqkbN_ne_4jhrel_Jf8PZq2Rh0OgL2BODgqolInArJc9MkheYlJXPn3znImyzm0xqYF06iRXPO7lZRT0NrGSgiHQNct7Uaa8jQutuZOdjCgkoYc_uliyukz_w3dFl/s1600/feij+table.jpg',
             'available': True,
@@ -125,10 +125,9 @@ def insert_initial_products(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("menu", "0005_order_orderitem"),
+        ("menu", "0001_initial"),
     ]
 
     operations = [
         migrations.RunPython(insert_initial_products),
     ]
-

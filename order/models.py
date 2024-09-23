@@ -11,6 +11,7 @@ class Order(models.Model):
         CANCELED = 'CANCELED', 'Canceled'
         FINISHED = 'FINISHED', 'Finished'
 
+    table_id = models.CharField(max_length=5)
     status = models.CharField(
         max_length=10,
         choices=OrderStatus.choices,
