@@ -8,3 +8,7 @@ class OrderItemRepository:
 
     def create(self, order: Order, product: Product, quantity: int) -> None:
         self.model.objects.create(order=order, product=product, quantity=quantity)
+
+    def get_by_order(self, order_id: int) -> [OrderItem]:
+        order_items = self.model.objects.filter(order_id=order_id)
+        return order_items

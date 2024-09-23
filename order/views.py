@@ -58,7 +58,18 @@ class CreateOrderView(View):
         """
         orders = Order.objects.exclude(status__in=['canceled', 'finished'])
 
-        # Convert the QuerySet to a list of dictionaries
-        orders_list = list(orders.values())
+        orders_list = []
 
+        for order in orders:
+            order_items = order.items.values(
+                'id', 'product__name', "product__category__name", 'quantity'
+            )
+
+            orders_list.append({
+                'id': order.id,
+                'table_id': order.table_id,
+                'status': order.status,
+                'created_at': order.created_at,
+                'items': list(order_items)
+            })
         return JsonResponse({'status': 'success', 'orders': orders_list}, status=200)
