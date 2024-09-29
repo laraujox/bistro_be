@@ -40,10 +40,10 @@ class CreateOrderView(View):
             Exception: For any other exceptions during the order creation process.
         """
         try:
-            items = json.loads(request.body.decode('utf-8'))
-            order = Order.objects.create()
+            order_payload = json.loads(request.body.decode('utf-8'))
+            order = Order.objects.create(table_id=order_payload["table_id"])
 
-            for item in items:
+            for item in order_payload["selected_products"]:
                 product = Product.objects.get(id=item['id'])
                 quantity = item['quantity']
                 order_item_repository.create(order, product, quantity)

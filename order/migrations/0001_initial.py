@@ -32,7 +32,6 @@ class Migration(migrations.Migration):
                         choices=[
                             ("PENDING", "Pending"),
                             ("PREPARING", "Preparing"),
-                            ("COMPLETED", "Completed"),
                             ("CANCELED", "Canceled"),
                             ("FINISHED", "Finished"),
                         ],
