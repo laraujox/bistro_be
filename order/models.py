@@ -1,3 +1,5 @@
+import enum
+
 from django.db import models
 
 from menu.models import Product
@@ -6,8 +8,8 @@ from menu.models import Product
 class Order(models.Model):
     class OrderStatus(models.TextChoices):
         PENDING = 'PENDING', 'Pending'
-        PROCESSING = 'PREPARING', 'Preparing'
-        COMPLETED = 'COMPLETED', 'Completed'
+        PREPARING = 'PREPARING', 'Preparing'
+        READY = 'READY', 'Ready'
         CANCELED = 'CANCELED', 'Canceled'
         FINISHED = 'FINISHED', 'Finished'
 

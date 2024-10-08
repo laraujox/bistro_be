@@ -1,15 +1,20 @@
 import json
 
 from django.core.handlers.wsgi import WSGIRequest
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_http_methods
+
 from menu.models import Product
 from order.models import Order
-from order.repositories import OrderItemRepository
+from order.repositories import OrderItemRepository, OrderRepository
+from order.services import OrderService
 
 order_item_repository = OrderItemRepository()
+order_repository = OrderRepository()
+order_service = OrderService()
 
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -73,3 +78,25 @@ class CreateOrderView(View):
                 'items': list(order_items)
             })
         return JsonResponse({'status': 'success', 'orders': orders_list}, status=200)
+
+
+@require_http_methods(["POST", "PUT"])
+@csrf_exempt
+def downgrade_order_status_view(_request, order_id: int):
+    order = order_repository.get(order_id)
+    downgraded_status = order_service.get_downgraded_status(order.status)
+    if order.status != downgraded_status:
+        order_repository.update_status(order_id, downgraded_status)
+        return HttpResponse(f"Order status upgraded to {downgraded_status}")
+    return HttpResponse(f"Order already in the lowest status")
+
+
+@require_http_methods(["POST", "PUT"])
+@csrf_exempt
+def upgrade_order_status_view(_request, order_id: int):
+    order = order_repository.get(order_id)
+    upgraded_status = order_service.get_upgraded_status(order.status)
+    if order.status != upgraded_status:
+        order_repository.update_status(order_id, upgraded_status)
+        return HttpResponse(f"Order status upgraded to {upgraded_status}")
+    return HttpResponse("Order already in the highest status")

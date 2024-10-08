@@ -17,8 +17,12 @@ Including another URLconf
 
 from django.urls import path
 
-from order.views import CreateOrderView
+from order.views import CreateOrderView, upgrade_order_status_view, downgrade_order_status_view
 
 urlpatterns = [
     path("", CreateOrderView.as_view(), name="create_order"),
+    path('<int:order_id>/upgrade', upgrade_order_status_view, name='upgrade_order_status'),
+    path(
+        '<int:order_id>/downgrade', downgrade_order_status_view, name='downgrade_order_status'
+    ),
 ]
